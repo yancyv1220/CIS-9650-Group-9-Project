@@ -104,3 +104,17 @@ print(f"The average duration for these movies are {duration} minutes.")
 Topsdf = sdf.sort_values('avg_vote', ascending = False).head(5)
 print("\nOf these movies, these are the top 5 highest rated:\n")
 print(Topsdf[['title','avg_vote']])
+
+#Start of # 5 Davin
+print()
+print("Summary of movie database:")
+print("Genres with most reviews by users, critics:")
+reviews_users = df.groupby("genre")["reviews_from_users"].sum().sort_values(ascending = False).head(10)
+reviews_critics = df.groupby("genre")["reviews_from_critics"].sum().sort_values(ascending = False).head(10)
+comb_reviews = pd.concat([reviews_users, reviews_critics], axis=1)
+print(comb_reviews)
+
+
+print()
+print("Correlation between duration and average vote per movie:")
+df.plot.scatter(x='duration', y='avg_vote')
