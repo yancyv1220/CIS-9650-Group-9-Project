@@ -17,7 +17,11 @@ To ease the process of searching for a good movie, our program will display top 
 
 Towards the end, we also present correlationary info between various factors (duration, metascore, vote count) against average user rating in order to see if there are any factor that predict that a movie will be good.
 
-In order the user to use the program itself, the IMDB movies database will have to be downloaded from Kaggle as a csv file named "movies".
+In order the user to use the program itself, the IMDB movies database will have to be downloaded from Kaggle as a csv file named "movies". When downloading the movies csv, please ensure that all of the columns have been selected, as kaggle displays only the first 10 by default.
+
+
+![Movies Report Download](https://user-images.githubusercontent.com/83913621/118361414-5c49f680-b559-11eb-8224-1efabd17f13f.jpg)
+
 
 
 # Key Links
