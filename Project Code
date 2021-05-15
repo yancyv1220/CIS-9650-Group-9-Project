@@ -1,8 +1,7 @@
 # -*- coding: utf-8 -*-
 """
-Created on Sat May 15 08:43:38 2021
-
-@author: yancy
+CIS 9650: IMDB Movies Reccomendation System
+Group 9
 """
 
 import pandas as pd
