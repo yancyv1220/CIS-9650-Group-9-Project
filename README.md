@@ -24,35 +24,26 @@ plt.show()
 
 print("Step 3")
 print("============================")
+
 #List the top 5 movies based on the user's favorite genre.
 print("Top 5 movies are: ")
-movies.sort_values(by = ["reviews_from_users"],ascending=False,inplace=True,ignore_index=True)
-top_5m = movies.loc[0:5, "title"]
-
-print(top_5m)
-
+TopMov = movies.sort_values('avg_vote', ascending = False).head(5)
+print(TopMov[['title','avg_vote']])
 
 #List the languages of the top 5 movies
 print("Languages of the top 5 movies are: ")
-movies.sort_values(by = ["language"],ascending=False,inplace=True,ignore_index=True)
-top_5l = movies.loc[0:5,"language"]
-
-print(top_5l)
+TopMov = movies.sort_values('avg_vote', ascending = False).head(5)
+print(TopMov[['title','language']])
 
 #List the producing countries of the top 5 movies 
 print("TCountries that the top 5 movies are from:")
-movies.sort_values(by = ["title"],ascending=False,inplace=True,ignore_index=True)
-top_5c = movies.loc[0:5,"country"]
-
-print(top_5c)
+TopMov = movies.sort_values('avg_vote', ascending = False).head(5)
+print(TopMov[['title','country']])
 
 #List the duration (in minutes) of the top 5 movies 
 print("Length (in minutes) of top 5 movies:")
-movies.sort_values(by = ["title"],ascending=False,inplace=True,ignore_index=True)
-top_5d = movies.loc[0:5,"duration"]
-
-print(top_5d)
-
+TopMov = movies.sort_values('avg_vote', ascending = False).head(5)
+print(TopMov[['title','duration']])
 
 
 #Removing Rows that have Year in non 4-digit integer
@@ -88,6 +79,7 @@ plt.clf()
 #Plotting the populated Sets
 
 plt.plot(yearset,votes)
+
 plt.title('Average Rating Over the Years')
 plt.xlabel('Year Published')
 plt.ylabel('Average Rating')
@@ -139,6 +131,11 @@ Topsdf = sdf.sort_values('avg_vote', ascending = False).head(5)
 print("\nOf these movies, these are the top 5 highest rated:\n")
 print(Topsdf[['title','avg_vote']])
 
+
+#Clearing Plot
+progress = input("press any key to show next graph: ")
+plt.clf()
+
 #Start of # 5 Davin
 print()
 print("Summary of movie database:")
@@ -148,10 +145,7 @@ reviews_critics = df.groupby("genre")["reviews_from_critics"].sum().sort_values(
 comb_reviews = pd.concat([reviews_users, reviews_critics], axis=1)
 print(comb_reviews)
 
-#Clearing Plot
-progress = input("press any key to show next graph: ")
-plt.clf()
 
 print()
-print("Correlation between duration and average vote per movie:")
-df.plot.scatter(x='duration', y='avg_vote')
+print("Correlation between duration and average vote per movie within genre:")
+movies.plot.scatter(x='duration', y='avg_vote')
