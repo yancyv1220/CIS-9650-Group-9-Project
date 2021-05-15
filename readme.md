@@ -17,7 +17,7 @@ In this pandemic, people tend to spend more time than usual at home by streaming
 To ease the process of searching for a good mov
 ie, our program will display top movie choices (by average user rating) based on Genre selected while displaying key attributes that the user may be interested in. The user will have the chance to also filter by their preferred time period (2 decades increments) in order to further filter the data set to ensure that they get results of movies that they would care about. As we've seen movies of different Genres vary in quality greatly over the years, (Ex: The older a thriller movie is, the better received it was, whereas Animation movies have been evenly received well.)
 
-Towards the end, we also present correlationary info between various factors (duration, metascore, vote count) against average user rating in order to see if there are any factor that predict that a movie will be good.
+Towards the end, we also present correlationary info between various attributes (viewer/critic review, movie genre, and language.) against average user rating in order to see if there are any factors that predict that a movie will be good.
 
 
 # Instructions: Starting the Program
