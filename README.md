@@ -22,6 +22,38 @@ for movie in movies["title"].head(100).values:
 movies.head(5).plot('title','avg_vote',kind="bar")
 plt.show()
 
+print("Step 3")
+print("============================)
+# List the top 5 movies based on the user's favorite genre.
+print("Top 5 movies are: ")
+movies.sort_values(by = ["reviews_from_users"],ascending=False,inplace=True,ignore_index=True)
+top_5m = movies.loc[0:5, "title"]
+
+print(top_5m)
+
+
+#List the languages of the top 5 movies
+print("Languages of the top 5 movies are: ")
+movies.sort_values(by = ["language"],ascending=False,inplace=True,ignore_index=True)
+top_5l = movies.loc[0:5,"language"]
+
+print(top_5l)
+
+#List the producing countries of the top 5 movies 
+print("TCountries that the top 5 movies are from:")
+movies.sort_values(by = ["title"],ascending=False,inplace=True,ignore_index=True)
+top_5c = movies.loc[0:5,"country"]
+
+print(top_5c)
+
+#List the duration (in minutes) of the top 5 movies 
+print("Length (in minutes) of top 5 movies:")
+movies.sort_values(by = ["title"],ascending=False,inplace=True,ignore_index=True)
+top_5d = movies.loc[0:5,"duration"]
+
+print(top_5d)
+
+
 
 #Removing Rows that have Year in non 4-digit integer
 mask = df.year.astype(str).str.len()<=4
