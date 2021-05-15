@@ -1,8 +1,9 @@
 import pandas as pd
+import matplotlib.pyplot as plt
 
 
-# Read CSV file
-f=open('movies.csv')
+#Read CSV file
+f=open('movies.csv' , encoding = "utf-8")
 df = pd.read_csv(f)
 
 print("Step 1")
@@ -12,55 +13,56 @@ print(len(df),"records were read from file.")
 print("Step 2")
 print("====================================")
 df['genre'] = df['genre'].str.split(', ')
-df=df.explode('genre')
+df = df.explode('genre')
 print(pd.unique(df["genre"]))
-select=input("Please select genre:")
-movies=df[df["genre"]==select.title()].sort_values("avg_vote",ascending=False)
+select = input("Please select genre:")
+movies = df[df["genre"]==select.title()].sort_values("avg_vote",ascending=False)
 for movie in movies["title"].head(100).values:
     print(movie)
 movies.head(5).plot('title','avg_vote',kind="bar")
+plt.show()
 
 
-
-# Start of Number 4 (Yancy)
-
-
-# Removing Rows that have Year in non 4-digit integer
+#Removing Rows that have Year in non 4-digit integer
 mask = df.year.astype(str).str.len()<=4
 df = df.loc[mask]
 
-# Changing the data type of year to datetime
+#Changing the data type of year to datetime
 df['year'] = pd.to_datetime(df['year'], format='%Y')
 
 
-# Filtering Dataframe to only include movies that contain the selected genre
+#Filtering Dataframe to only include movies that contain the selected genre
 gdf = df[df['genre'].str.contains(select)]
 
 
-# Creating Unique set of years and intializing sets in preperation to plot line graph
-yearset = sorted(set(df.year.unique()))
+#Creating Unique set of years and intializing sets in preperation to plot line graph
+yearset = sorted(set(gdf.year.unique()))
 years = []
 votes = []
 
-# Looping to populate Empty Sets
+#Looping to populate Empty Sets
 for y in yearset:
-    years.append(y)
     adf = gdf[(gdf['year'] == y)]
     length = len(adf)
     totalvote = adf['avg_vote'].sum()
     vote =  round((totalvote / length),2)
     votes.append(vote)
 
-# Plotting the populated Sets
-import matplotlib.pyplot as plt
-plt.plot(years,votes)
+
+# Clearing Plot
+progress = input("press any key to show next graph: ")
+plt.clf()
+
+#Plotting the populated Sets
+
+plt.plot(yearset,votes)
 plt.title('Average Rating Over the Years')
 plt.xlabel('Year Published')
 plt.ylabel('Average Rating')
 plt.show()
 
 
-# Presenting User with the choice of their time period
+#Presenting User with the choice of their time period
 print("""\nPlease select the letter that corresponds with the time period that you want to filter by:\n
 1 : 1920's or earlier
 2 : In 1920's or 1930's
@@ -73,7 +75,7 @@ print("""\nPlease select the letter that corresponds with the time period that y
 timeselect = int(input("> "))
 
 
-# Defining the Dataframes filter based on selected time period
+#Defining the Dataframes filter based on selected time period
 if timeselect == 1:
     sdf = gdf[(gdf['year'] < '1920-01-01')]
 elif timeselect == 2:
@@ -88,7 +90,7 @@ elif timeselect == 6:
     sdf = gdf[(gdf['year'] >= '2000-01-01')]
 
 
-# Summarizing Rating and Duration of Movies in selected Time Period
+#Summarizing Rating and Duration of Movies in selected Time Period
 length = len(sdf)
 totalvote = sdf['avg_vote'].sum()
 vote = round((totalvote / length),2)
@@ -100,7 +102,7 @@ print(f"The average rating for these movies are {vote} out of 10.")
 print(f"The average duration for these movies are {duration} minutes.")
 
 
-# Presenting Top 5 highest rated Movies in Time Period
+#Presenting Top 5 highest rated Movies in Time Period
 Topsdf = sdf.sort_values('avg_vote', ascending = False).head(5)
 print("\nOf these movies, these are the top 5 highest rated:\n")
 print(Topsdf[['title','avg_vote']])
@@ -114,6 +116,9 @@ reviews_critics = df.groupby("genre")["reviews_from_critics"].sum().sort_values(
 comb_reviews = pd.concat([reviews_users, reviews_critics], axis=1)
 print(comb_reviews)
 
+#Clearing Plot
+progress = input("press any key to show next graph: ")
+plt.clf()
 
 print()
 print("Correlation between duration and average vote per movie:")
