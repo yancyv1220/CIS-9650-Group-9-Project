@@ -18,6 +18,11 @@ To ease the process of searching for a good movie, our program will display top 
 Towards the end, we also present correlationary info between various factors (duration, metascore, vote count) against average user rating in order to see if there are any factor that predict that a movie will be good.
 
 
+# Key Links
+https://github.com/yancyv1220/CIS-9650-Group-9-Project/blob/main/Project%20Code (Link to the Program)
+
+
+
 
 # Link to Powerpoint Presentation
 
