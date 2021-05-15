@@ -8,14 +8,14 @@ df = pd.read_csv(f)
 
 
 
-print("Step 1")
+print("\nStep 1")
 print("====================================")
 
 print(len(df),"records were read from file.")
 
 
 
-print("Step 2")
+print("\nStep 2")
 print("====================================")
 
 df['genre'] = df['genre'].str.split(', ')
@@ -30,7 +30,7 @@ plt.show()
 
 
 
-print("Step 3")
+print("\nStep 3")
 print("============================")
 
 #List the top 5 movies based on the user's favorite genre.
@@ -55,7 +55,7 @@ print(TopMov[['title','duration']])
 
 
 
-print("Step 4")
+print("\nStep 4")
 print("============================")
 
 #Removing Rows that have Year in non 4-digit integer
