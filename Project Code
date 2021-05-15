@@ -141,7 +141,7 @@ plt.clf()
 
 
 
-print("Step 5")
+print("\nStep 5")
 print("============================")
 
 print()
