@@ -72,7 +72,7 @@ for y in yearset:
     votes.append(vote)
 
 
-#Clearing Plot
+# Clearing Plot
 progress = input("press any key to show next graph: ")
 plt.clf()
 
@@ -148,4 +148,10 @@ print(comb_reviews)
 
 print()
 print("Correlation between duration and average vote per movie:")
-df.plot.scatter(x='duration', y='avg_vote')
+df.plot.scatter(x='duration', y='avg_vote', s=6)
+
+print("Correlation between number of votes and average vote per movie")
+df.plot.scatter(x='metascore', y='avg_vote', s=6)
+
+print("Correlation between number of votes and average vote per movie")
+df.plot.scatter(x='votes', y='avg_vote', s=6)
