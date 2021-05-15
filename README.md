@@ -147,5 +147,5 @@ print(comb_reviews)
 
 
 print()
-print("Correlation between duration and average vote per movie within genre:")
-movies.plot.scatter(x='duration', y='avg_vote')
+print("Correlation between duration and average vote per movie:")
+df.plot.scatter(x='duration', y='avg_vote')
