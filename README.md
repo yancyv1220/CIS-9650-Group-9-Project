@@ -23,8 +23,8 @@ movies.head(5).plot('title','avg_vote',kind="bar")
 plt.show()
 
 print("Step 3")
-print("============================)
-# List the top 5 movies based on the user's favorite genre.
+print("============================")
+#List the top 5 movies based on the user's favorite genre.
 print("Top 5 movies are: ")
 movies.sort_values(by = ["reviews_from_users"],ascending=False,inplace=True,ignore_index=True)
 top_5m = movies.loc[0:5, "title"]
