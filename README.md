@@ -72,7 +72,7 @@ for y in yearset:
     votes.append(vote)
 
 
-# Clearing Plot
+#Clearing Plot
 progress = input("press any key to show next graph: ")
 plt.clf()
 
