@@ -1,3 +1,10 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Sat May 15 08:43:38 2021
+
+@author: yancy
+"""
+
 import pandas as pd
 import matplotlib.pyplot as plt
 
@@ -156,9 +163,8 @@ print()
 print("Correlation between duration and average vote per movie:")
 df.plot.scatter(x='duration', y='avg_vote', s=6)
 
-print("Correlation between number of votes and average vote per movie:")
+print("Correlation between metascore and average vote per movie:")
 df.plot.scatter(x='metascore', y='avg_vote', s=6)
 
 print("Correlation between number of votes and average vote per movie:")
 df.plot.scatter(x='votes', y='avg_vote', s=6)
-
