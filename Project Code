@@ -156,9 +156,9 @@ print()
 print("Correlation between duration and average vote per movie:")
 df.plot.scatter(x='duration', y='avg_vote', s=6)
 
-print("Correlation between number of votes and average vote per movie")
+print("Correlation between number of votes and average vote per movie:")
 df.plot.scatter(x='metascore', y='avg_vote', s=6)
 
-print("Correlation between number of votes and average vote per movie")
+print("Correlation between number of votes and average vote per movie:")
 df.plot.scatter(x='votes', y='avg_vote', s=6)
 
